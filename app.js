@@ -2,18 +2,17 @@ const logMood = document.querySelector("#log-mood");
 const listMood = document.querySelector("#list-mood");
 const lastMoodName = document.querySelector("#last-mood-name");
 const lastMoodImg = document.querySelector("#last-mood-img");
-const logForm = document.querySelector("#log-form")
-const body = document.body
+const logForm = document.querySelector("#log-form");
+const body = document.body;
+const main = document.main;
 
 logMood.addEventListener("click", (e) => {
-    e.preventDefault();
+	e.preventDefault();
 	const modal = createModal();
-    body.appendChild(createModal());
+	body.appendChild(createModal());
 });
 
 function createModal() {
-    
-
 	const modal = document.createElement("div");
 	const logForm = document.createElement("form");
 	const btnClose = document.createElement("btn");
@@ -69,7 +68,7 @@ function createModal() {
 	fiveInput.setAttribute("type", "radio");
 	fiveInput.setAttribute("name", "mood");
 	fiveInput.setAttribute("value", "very-sad");
-    btnLogMood.setAttribute("type", "submit");
+	btnLogMood.setAttribute("type", "submit");
 
 	h2.textContent = "Log your mood";
 	h3.textContent = "How was your mood today";
@@ -100,12 +99,49 @@ function createModal() {
 	logForm.appendChild(fiveLabel);
 	fiveLabel.appendChild(fiveInput);
 	fiveLabel.appendChild(fiveH5);
-    logForm.appendChild(btnLogMood);
-    btnLogMood.appendChild(h4);
+	logForm.appendChild(btnLogMood);
+	btnLogMood.appendChild(h4);
 
-    btnClose.addEventListener("click", () => {
-        modal.remove()
-    })
+	btnClose.addEventListener("click", () => {
+		modal.remove();
+	});
 
-    return modal;
+	btnLogMood.addEventListener("click", (e) => {
+		e.preventDefault();
+        modal.remove();
+	});
+
+	return modal;
 }
+
+// function createLastMood() {
+//     const sectionMood = document.createElement("sectino");
+// 	const lastMoodDiv = document.createElement("div");
+// 	const lastMoodH3 = document.createElement("h3");
+// 	const lastMoodH2 = document.createElement("h2");
+// 	const lastMoodImg = document.createElement("img");
+//     const listMood = document.createElement("div");
+
+//     sectionMood.classList.add("dashboard");
+// 	lastMoodDiv.classList.add("last-mood");
+// 	lastMoodH3.classList.add("text-preset-4");
+// 	lastMoodH2.classList.add("text-preset-2");
+//     listMood.classList.add("list-mood");
+
+// 	lastMoodH2.setAttribute("id", "last-mood-name");
+// 	lastMoodImg.setAttribute("id", "last-mood-img");
+//     listMood.setAttribute("id", "list-mood");
+
+// 	lastMoodImg.src = "";
+// 	lastMoodImg.alt = "";
+
+// 	lastMoodH3.textContent = "Last mood";
+
+//     sectionMood.appendChild(lastMoodDiv);
+// 	lastMoodDiv.appendChild(lastMoodH3);
+// 	lastMoodDiv.appendChild(lastMoodH2);
+// 	lastMoodDiv.appendChild(lastMoodImg);
+//     sectionMood.appendChild(listMood);
+
+//     return sectionMood; 
+// }
