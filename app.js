@@ -2,15 +2,18 @@ const logMood = document.querySelector("#log-mood");
 const listMood = document.querySelector("#list-mood");
 const lastMoodName = document.querySelector("#last-mood-name");
 const lastMoodImg = document.querySelector("#last-mood-img");
-
-let mood = "";
+const logForm = document.querySelector("#log-form")
+const body = document.body
 
 logMood.addEventListener("click", (e) => {
-	createModal();
-	e.preventDefault;
+    e.preventDefault();
+	const modal = createModal();
+    body.appendChild(createModal());
 });
 
 function createModal() {
+    
+
 	const modal = document.createElement("div");
 	const logForm = document.createElement("form");
 	const btnClose = document.createElement("btn");
@@ -35,18 +38,18 @@ function createModal() {
 	const btnLogMood = document.createElement("button");
 	const h4 = document.createElement("h4");
 
-	modal.className.add("modal");
-	logForm.className.add("log-form");
-	btnClose.className.add("btn", "text");
-	h2.className.add("text-preset-2");
-	h3.className.add("text-preset-3");
-	firstH5.className.add("text-preset-5");
-	secondH5.className.add("text-preset-5");
-	thirdH5.className.add("text-preset-5");
-	fourthH5.className.add("text-preset-5");
-	fiveH5.className.add("text-preset-5");
-	btnLogMood.className.add("btn", "block", "blue-600", "neutral-o-text");
-	h4.className.add("text-preset-4");
+	modal.classList.add("modal");
+	logForm.classList.add("log-form");
+	btnClose.classList.add("btn", "text");
+	h2.classList.add("text-preset-2");
+	h3.classList.add("text-preset-3");
+	firstH5.classList.add("text-preset-5");
+	secondH5.classList.add("text-preset-5");
+	thirdH5.classList.add("text-preset-5");
+	fourthH5.classList.add("text-preset-5");
+	fiveH5.classList.add("text-preset-5");
+	btnLogMood.classList.add("btn", "block", "blue-600", "neutral-o-text");
+	h4.classList.add("text-preset-4");
 
 	imgClose.src = "./assets/close";
 	imgClose.alt = "close button";
@@ -66,6 +69,7 @@ function createModal() {
 	fiveInput.setAttribute("type", "radio");
 	fiveInput.setAttribute("name", "mood");
 	fiveInput.setAttribute("value", "very-sad");
+    btnLogMood.setAttribute("type", "submit");
 
 	h2.textContent = "Log your mood";
 	h3.textContent = "How was your mood today";
@@ -94,8 +98,8 @@ function createModal() {
 	fourthLabel.appendChild(fourthInput);
 	fourthLabel.appendChild(fourthH5);
 	logForm.appendChild(fiveLabel);
-	fiveLabel.appendChildfive(Input);
-	fiveLabel.appendChildfive(H5);
+	fiveLabel.appendChild(fiveInput);
+	fiveLabel.appendChild(fiveH5);
     logForm.appendChild(btnLogMood);
     btnLogMood.appendChild(h4);
 
